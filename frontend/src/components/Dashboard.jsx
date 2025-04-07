@@ -145,9 +145,12 @@ const Dashboard = () => {
     setUsername(getStoredUsername());
   }, []);
 
+    
+  // eslint-disable-next-line 
   useEffect(() => {
     const theme = getStoredTheme();
     setIsDarkMode(theme === "dark");
+    // eslint-disable-next-line 
   }, []);
 
   useEffect(() => {

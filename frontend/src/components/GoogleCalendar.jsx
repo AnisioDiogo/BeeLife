@@ -14,7 +14,7 @@ const GoogleCalendar = () => {
   const fetchEvents = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("https://beelifeapi.onrender.com/api/tasks", {
+      const response = await axios.get("https://beelife-private.onrender.com/api/tasks", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -47,7 +47,7 @@ const GoogleCalendar = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("https://beelifeapi.onrender.com/api/tasks/", newEvent, {
+      await axios.post("https://beelife-private.onrender.com/api/tasks/", newEvent, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -65,7 +65,7 @@ const GoogleCalendar = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`https://beelifeapi.onrender.com/api/tasks/${info.event.id}`, updatedEvent, {
+      await axios.put(`https://beelife-private.onrender.com/api/tasks/${info.event.id}`, updatedEvent, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
