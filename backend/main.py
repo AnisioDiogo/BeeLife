@@ -12,12 +12,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Configuração do CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",  # durante desenvolvimento local
-        "https://beelife-five.vercel.app"  # quando estiver em produção
+        "http://localhost:3000",
+        "https://beelife-five.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
