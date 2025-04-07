@@ -17,7 +17,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",  # durante desenvolvimento local
-        "https://beelife-git-main-anisio-diogos-projects.vercel.app"  # quando estiver em produção
+        "https://beelife-five.vercel.app"  # quando estiver em produção
     ],
     allow_credentials=True,
     allow_methods=["*"],
