@@ -5,36 +5,24 @@ from routes.user_routes import user_router
 from routes.dashboard_routes import dashboard_router  # Importe o roteador de dashboard
 from routes.chatbot_routes import chat_router
 from routes.userstudy_routes import userstudy_router
-from fastapi import FastAPI
 import google.generativeai as genai
 import os
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 
-# Lista de domínios permitidos
-origins = [
-    "http://localhost:3000",
-    "https://beelife-five.vercel.app"
-]
-
-# Middleware de CORS
+# Configuração do CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "http://localhost:3000", 
+        "https://sadusai10023910mkswlekqw0etesting.netlify.app",
+        "https://beelife-private.onrender.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.get("/")
-def root():
-    return {"message": "API está funcionando"}
-
-@app.post("/api/users/register")
-def register():
-    return {"message": "registrado com sucesso"}
 # Inclui as rotas de tarefas
 app.include_router(task_router, prefix="/api/tasks", tags=["tasks"])
 
@@ -56,7 +44,6 @@ def read_root():
     return {"message": "Bem-vindo ao assistente inteligente!"}
 
 # Comando para lançar o backend no localhost: python -m uvicorn main:app --reload
-
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=10000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
