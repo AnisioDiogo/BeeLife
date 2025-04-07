@@ -1,0 +1,17 @@
+#Lista de bibiliotecas necessárias para as funcionalidades presentes no backend
+fastapi
+uvicorn
+motor
+pydantic
+bcrypt 
+PyJWT
+google-generativeai
+firebase-admin
+python-dotenv
+pymongo
+pandas
+email-validator
+google-auth
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
