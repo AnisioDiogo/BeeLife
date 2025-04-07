@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/api";
+const API_URL = "https://beelifeapi.onrender.com/api";
 
 // Função para registrar usuário
 export const registerUser = async (username, password) => {
