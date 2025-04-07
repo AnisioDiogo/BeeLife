@@ -11,3 +11,4 @@ class Task(BaseModel):
 	completed: bool = False
 	category: str = Field(..., description="Tipo: tarefa, evento, lembrete, nota")
 	created_at: datetime = Field(default_factory=datetime.utcnow)
+	user_id: str= Field(..., description="ID do usuário associado à tarefa")
