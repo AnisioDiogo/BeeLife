@@ -43,7 +43,7 @@ const PadroesAvisos = () => {
       .catch((error) => console.error("Erro ao buscar padrões:", error));
 
     axios
-      .get("http://127.0.0.1:8000/api/patterns/avisos")
+      .get("https://beelifeapi.onrender.com/api/patterns/avisos")
       .then((response) => {
         // Verifica se a resposta tem a estrutura esperada
         const avisosData =
@@ -107,7 +107,7 @@ Faça um resumo de no máximo **5 linhas** destacando os principais problemas e 
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const response = await fetch("http://localhost:8000/api/chat/chat", {
+      const response = await fetch("https://beelifeapi.onrender.com/api/chat/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: prompt }),
