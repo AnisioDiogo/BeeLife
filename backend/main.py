@@ -10,19 +10,31 @@ import google.generativeai as genai
 import os
 from fastapi.middleware.cors import CORSMiddleware
 
+
 app = FastAPI()
 
+# Lista de domínios permitidos
+origins = [
+    "http://localhost:3000",
+    "https://beelife-five.vercel.app"
+]
+
+# Middleware de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "https://beelife-five.vercel.app"
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {"message": "API está funcionando"}
+
+@app.post("/api/users/register")
+def register():
+    return {"message": "registrado com sucesso"}
 # Inclui as rotas de tarefas
 app.include_router(task_router, prefix="/api/tasks", tags=["tasks"])
 
