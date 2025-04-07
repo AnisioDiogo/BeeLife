@@ -19,7 +19,7 @@ const Login = () => {
       if (!token) return alert("Erro ao autenticar com o Google!");
   
       const response = await axios.post(
-        "http://localhost:8000/api/users/google-login",
+        "https://beelifeapi.onrender.com/api/users/google-login",
         { token },
         { headers: { "Content-Type": "application/json" } }
       );
