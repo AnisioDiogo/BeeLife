@@ -77,9 +77,11 @@ export const fetchUsers = async () => {
 };
 
 // Função para buscar tarefas
-export const getTasks = async () => {
+export const getTasks = async (token) => {
     try {
-        const response = await axios.get(`${API_URL}/tasks`);
+        const response = await axios.get(`${API_URL}/tasks`, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
         return response.data;
     } catch (error) {
         console.error("Erro ao buscar tarefas:", error.response?.data || error.message);
@@ -115,16 +117,20 @@ export const updateTask = async (token, taskId, updatedTask) => {
 
 
 // Função para deletar uma tarefa
-export const deleteTask = async (taskId) => {
+export const deleteTask = async (token, taskId) => {
     try {
-        const response = await axios.delete(`${API_URL}/tasks/${taskId}`);
-        return response.data;
+      const response = await axios.delete(`${API_URL}/tasks/${taskId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
     } catch (error) {
-        console.error("Erro ao deletar tarefa:", error.response?.data || error.message);
-        throw error;
+      console.error("Erro ao deletar tarefa:", error.response?.data || error.message);
+      throw error;
     }
 };
-
+  
 // Função para buscar dados do dashboard
 export const get_dashboard = async ({ day, total, completed, pending } = {}) => {
     try {
