@@ -107,7 +107,7 @@ Faça um resumo de no máximo **5 linhas** destacando os principais problemas e 
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const response = await fetch("https://beelife-private.onrender.com/api/chat/chat", {
+      const response = await fetch("https://beelifeapi.onrender.com/api/chat/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: prompt }),
